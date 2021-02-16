@@ -1,7 +1,4 @@
-'use strict';
-
-///////////////////////////////////////
-// Modal window
+"use strict";
 
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
@@ -31,3 +28,34 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+const header = document.querySelector('.header');
+const allSections = document.querySelectorAll('.section');
+
+document.getElementById('#section--1');
+const allButtons = document.getElementsByTagName('button');
+
+const message = document.createElement('div'); 
+message.classList.add('cookie-message');
+
+message.innerHTML = 
+'We use cookies for improwed functionality and analytics.<button class="btn btn--close-cookie">Go it!</button>';
+
+header.append(message);
+
+document.querySelector('.btn--close-cookie')
+.addEventListener('click', () => { message.remove() });
+
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+
+message.style.height = Number.parseFloat(getComputedStyle(message).height, 10) + 20 + 'px'
+
+document.documentElement.style.setProperty('--color-primary', 'blue');
+
+const logo = document.querySelector('.nav__logo');
+
+logo.classList.add('c');
+logo.classList.remove('c');
+logo.classList.toggle('c');
+logo.classList.contains('c');
