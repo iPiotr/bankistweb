@@ -70,14 +70,6 @@ btnScrollTo.addEventListener('click', (e) => {
 
   console.log('height/width viewport', document.documentElement.clientHeight, document.documentElement.clientWidth);
 
-  // window.scrollTo(s1coords.left + window.pageXOffset, s1coords.top + window.pageYOffset);
-
-  // window.scrollTo({
-  //   left: s1coords.left + window.pageXOffset,
-  //   top: s1coords.top + window.pageYOffset,
-  //   behavior: 'smooth',
-  // });
-
   secton1.scrollIntoView({behavior: 'smooth'});
 
 
@@ -90,9 +82,4 @@ const alertH1 = function(e) {
 };
 
 h1.addEventListener('mouseenter', alertH1);
-
-// h1.onmouseenter = function(e) {
-//   alert('mouseenter');
-// };
-
 setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
