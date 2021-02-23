@@ -57,8 +57,6 @@ document.documentElement.style.setProperty('--color-primary', 'blue');
 
 const logo = document.querySelector('.nav__logo');
 
-const h1 = document.querySelector('h1');
-
 // const alertH1 = function(e) {
 //   alert('AddListe');
 // };
@@ -116,7 +114,6 @@ btnScrollTo.addEventListener('click', (e) => {
 
 
 document.querySelector('.nav__links').addEventListener('click', function (e) {
-  console.log(e.target);
   e.preventDefault();
   
   if(e.target.classList.contains('nav__link')) {
@@ -124,3 +121,59 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
     document.querySelector(id).scrollIntoView({behavior: 'smooth'});
   }
 });
+
+//Tabbed component
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', function(e) {
+  const clicked = e.target.closest('.operations__tab');
+
+  //guard clause
+  if(!clicked) return;
+
+  //active tab
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+
+  clicked.classList.add('operations__tab--active');
+
+  //actice content area
+
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`)
+  .classList.add('operations__content--active');
+
+
+});
+
+
+// const h1 = document.querySelector('h1');
+
+// console.log(h1.querySelectorAll('.highlight'));
+// console.log(h1.childNodes);
+// console.log(h1.children);
+// h1.firstElementChild.style.color = 'white';
+// h1.lastElementChild.style.color = 'orangered';
+
+// //going upwards
+
+// console.log(h1.parentNode);
+// console.log(h1.parentElement);
+
+// h1.closest('.header').style.background = 'var(--gradient-secondary)';
+
+// h1.closest('h1').style.background = 'var(--gradient-primary)';
+
+// //going sideways
+
+// console.log(h1.previousElementSibling);
+// console.log(h1.nextElementSibling);
+
+// console.log(h1.previousSibling);
+// console.log(h1.nextSibling);
+
+// console.log(h1.parentElement.children);
+// [...h1.parentElement.children].forEach(function(el) {
+//   if (el !== h1) el.style.transform = 'scale(0.5)';
+// });
